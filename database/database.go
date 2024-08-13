@@ -35,6 +35,9 @@ func ConnectDB() {
 		log.Fatalf("Databse base error, %v\n", err)
 	}
 
+	// CreateEnumType
+	CreateType(db)
+
 	log.Println("Connected to the database successfully")
 	log.Println("Running Migrations")
 

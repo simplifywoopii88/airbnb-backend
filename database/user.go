@@ -37,7 +37,7 @@ type UserSerializer struct {
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-// serialize for User struct
+// Serialize serialize for User struct
 func (u *User) Serialize() UserSerializer {
 	return UserSerializer{
 		ID:        u.ID,
