@@ -3,32 +3,22 @@ package database
 import (
 	"database/sql"
 	"database/sql/driver"
-	"encoding/json"
-	"errors"
 )
 
-type City struct {
-	Korea string
-	USA   string
-	ETC   string
-}
+type City string
 
-type JSON json.RawMessage
+const (
+	KOREA City = "korea"
+	ETC   City = "etc"
+)
 
 func (c *City) Scan(value interface{}) error {
-	cityJSON, ok := value.(string)
-	if !ok {
-		return errors.New("unexpected type for city")
-	}
-	return json.Unmarshal([]byte(cityJSON), c)
+	*c = City(value.([]byte))
+	return nil
 }
 
 func (c City) Value() (driver.Value, error) {
-	cityJSON, err := json.Marshal(c)
-	if err != nil {
-		return nil, err
-	}
-	return string(cityJSON), nil
+	return string(c), nil
 }
 
 type Room struct {
