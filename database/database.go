@@ -36,7 +36,8 @@ func ConnectDB() {
 	}
 
 	// CreateEnumType
-	CreateType(db)
+	CreateCityType(db)
+	CreateKindType(db)
 
 	log.Println("Connected to the database successfully")
 	log.Println("Running Migrations")
