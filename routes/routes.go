@@ -20,4 +20,8 @@ func SetupMiddleware(app *fiber.App) {
 	// user route
 	userRoute := app.Group("/api/users")
 	userRoute.Post("/", createUser)
+	userRoute.Get("/", getUsers)
+	userRoute.Get("/:id", getUser)
+	userRoute.Patch("/:id", updateUser)
+	userRoute.Delete("/:id", deleteUser)
 }

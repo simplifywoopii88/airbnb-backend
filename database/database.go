@@ -2,10 +2,10 @@ package database
 
 import (
 	"fmt"
-	"github.com/simplifywoopii88/airbnb-backend/models"
+	"log"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"log"
 )
 
 var DB *gorm.DB
@@ -38,7 +38,7 @@ func ConnectDB() {
 	log.Println("Connected to the database successfully")
 	log.Println("Running Migrations")
 
-	if err := db.AutoMigrate(new(models.User)); err != nil {
+	if err := db.AutoMigrate(new(User)); err != nil {
 		log.Println("cannot migrate DB")
 		panic(err.Error())
 	}

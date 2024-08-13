@@ -1,14 +1,15 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/simplifywoopii88/airbnb-backend/database"
 	"github.com/simplifywoopii88/airbnb-backend/routes"
-	"log"
 )
 
 const (
-	port string = ":3000"
+	port string = ":4000"
 )
 
 func main() {
