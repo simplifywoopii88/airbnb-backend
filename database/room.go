@@ -2,19 +2,21 @@ package database
 
 import (
 	"time"
+
+	"github.com/simplifywoopii88/airbnb-backend/dbtype"
 )
 
 type Room struct {
 	Id          uint    `json:"id" gorm:"primaryKey"`
 	Country     string  `json:"country" gorm:"default:'korea'"`
-	City        City    `json:"city" gorm:"type:city"`
+	City        dbtype.City    `json:"city" gorm:"type:city"`
 	Price       int     `json:"price"`
 	Rooms       int     `json:"rooms"`
 	Toilets     int     `json:"toilets"`
 	Description *string `json:"description"`
 	Address     *string `json:"address"`
 	PetFriendly bool    `json:"pet_friendly" gorm:"default:false"`
-	Kind        Kind    `json:"kind" gorm:"type:kind"`
+	Kind        dbtype.Kind    `json:"kind" gorm:"type:kind"`
 	OwnerRefer  int     `json:"user_id"`
 	Owner       User    `gorm:"foreignKey:OwnerRefer"`
 	// time recode
@@ -25,14 +27,14 @@ type Room struct {
 type RoomSerializer struct {
 	Id          uint    `json:"id"`
 	Country     string  `json:"country"`
-	City        City    `json:"city"`
+	City        dbtype.City    `json:"city"`
 	Price       int     `json:"price"`
 	Rooms       int     `json:"rooms"`
 	Toilets     int     `json:"toilets"`
 	Description *string `json:"description"`
 	Address     *string `json:"address"`
 	PetFriendly bool    `json:"pet_friendly"`
-	Kind        Kind    `json:"kind"`
+	Kind        dbtype.Kind    `json:"kind"`
 	OwnerRefer  int     `json:"user_id"`
 	// time recode
 	CreatedAt time.Time `json:"created_at"`

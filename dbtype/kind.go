@@ -1,4 +1,4 @@
-package database
+package dbtype
 
 import (
 	"database/sql/driver"

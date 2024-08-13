@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/simplifywoopii88/airbnb-backend/dbtype"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -36,8 +37,8 @@ func ConnectDB() {
 	}
 
 	// CreateEnumType
-	CreateCityType(db)
-	CreateKindType(db)
+	dbtype.CreateCityType(db)
+	dbtype.CreateKindType(db)
 
 	log.Println("Connected to the database successfully")
 	log.Println("Running Migrations")
