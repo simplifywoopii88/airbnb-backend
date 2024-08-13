@@ -24,4 +24,8 @@ func SetupMiddleware(app *fiber.App) {
 	userRoute.Get("/:id", getUser)
 	userRoute.Patch("/:id", updateUser)
 	userRoute.Delete("/:id", deleteUser)
+
+	// rome route
+	roomRoute := app.Group("/api/rooms")
+	roomRoute.Post("/", createRoom)
 }

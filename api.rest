@@ -1,0 +1,44 @@
+###
+
+POST http://localhost:4000/api/users
+
+{
+    "email": "sample@sample.com",
+    "name": "name1"
+}
+
+###
+{
+    "email": "sample@sample.com",
+    "name": "name1",
+    # "is_host": "true",
+    # "gender": "female",
+    # "language": "english",
+    # "currency": "kor",
+}
+
+###
+
+GET http://localhost:4000/api/users
+
+{
+    "email": "sample@sample.com",
+    "name": "name1",
+    "is_host": true,
+    "gender": "female",
+    "language": "english",
+    "currency": "kor",
+}
+
+###
+
+GET http://localhost:4000/hello-world
+
+{
+    "email": "sample@sample.com",
+    "name": "name1",
+    "is_host": true,
+    "gender": "female",
+    "language": "english",
+    "currency": "kor",
+}

@@ -38,7 +38,10 @@ func ConnectDB() {
 	log.Println("Connected to the database successfully")
 	log.Println("Running Migrations")
 
-	if err := db.AutoMigrate(new(User)); err != nil {
+	if err := db.AutoMigrate(
+		new(User),
+		new(Room),
+	); err != nil {
 		log.Println("cannot migrate DB")
 		panic(err.Error())
 	}
