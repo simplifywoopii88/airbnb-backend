@@ -1,31 +1,11 @@
+/*
+Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+
+*/
 package main
 
-import (
-	"log"
-
-	"github.com/gofiber/fiber/v2"
-	"github.com/simplifywoopii88/airbnb-backend/database"
-	"github.com/simplifywoopii88/airbnb-backend/routes"
-)
-
-const (
-	port string = ":4000"
-)
+import "github.com/simplifywoopii88/airbnb-backend/cmd"
 
 func main() {
-	database.ConnectDB()
-	app := fiber.New()
-
-	//route
-	routes.SetupRoutes(app)
-
-	//middleware
-	routes.SetupMiddleware(app)
-
-	err := app.Listen(port)
-	if err != nil {
-		log.Println("Cannot start Listen and Serve!")
-		log.Fatal(err.Error())
-	}
-
+	cmd.Execute()
 }
